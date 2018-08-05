@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="input1">
+    <span>input1</span>
+    <input type="text" class="target" id="input1">
+</label>
+<br>
+<label for="input2">
+    <span>input2</span>
+    <textarea name="" id="input2" class="target" cols="30" rows="10"></textarea>
+</label>
+
+<script>
+    // console.log(document.querySelectorAll('input'));
+    var firstIsComposition = false;
+    var secondIsComposition = false;
+    document.querySelectorAll('.target').forEach(function (inputEle) {
+        console.log(inputEle)
+        inputEle.addEventListener('compositionstart', function (event) {
+            // console.log('start')
+            firstIsComposition = true;
+        });
+        
+        inputEle.addEventListener('compositionupdate', function (event) {
+            // console.log('update');
+            firstIsComposition = true;
+        });
+
+        inputEle.addEventListener('compositionend', function (event) {
+            // console.log('end');
+            firstIsComposition = false;
+            console.log(this.value)
+        });
+
+        inputEle.addEventListener('input', function (event) {
+            // console.log('input')
+            if(!firstIsComposition){
+                console.log(this.value)
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  (function () {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'a.js';
+    script.id = 'a1';
+    script.content = 'first';
+    document.body.appendChild(script);
+  })();
+
+  (function () {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'a.js';
+    script.id = 'a2';
+    script.content = 'second';
+    document.body.appendChild(script);
+  })();
+</script>
+</body>
+</html>
